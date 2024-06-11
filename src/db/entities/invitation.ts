@@ -24,7 +24,7 @@ export class Invitation {
     enum: InvitationStatus,
     default: InvitationStatus.pending
   })
-  status: InvitationStatus
+  status: 'pending' | 'accepted' | 'rejected'
 
   @ManyToMany(() => User, (user) => user.invitation, { cascade: true })
   @JoinTable()

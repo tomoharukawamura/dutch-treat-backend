@@ -12,7 +12,8 @@ export class UserService {
   async findUser(id: number){
     const user = await this.user.findOne({
       relations: {
-        join: true
+        join: true,
+        invitation: true
       },
       where: {
         id
@@ -26,6 +27,12 @@ export class UserService {
           name: true,
           startAt: true,
           endsAt: true
+        },
+        invitation: {
+          theme: {
+            id: true,
+            name: true
+          }
         }
       },
     })
